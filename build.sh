@@ -1,5 +1,6 @@
 #!/bin/bash
 #GET Dockerfile List
+set -euxo pipefail
 REPO_PREFIX="xingba"
 # DockerfileList=$(git diff-tree --no-commit-id --name-only -n 1 HEAD~1..HEAD  -r --diff-filter=ACMR)
 DockerfileList=$(git diff-tree --no-commit-id --name-only -r --diff-filter=ACMR HEAD|grep Dockerfile)
