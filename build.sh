@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #GET Dockerfile List
 set -euxo pipefail
 REPO_PREFIX="xingba"
