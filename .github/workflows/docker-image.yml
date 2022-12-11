@@ -18,4 +18,5 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: Build & Push
-      run: build.sh
+      run: ./build.sh
+      shell: bash
