@@ -1,15 +1,10 @@
 name: Docker Image CI
 
-# on:
-#   push:
-#     branches: [ "main" ]
-#   pull_request:
-#     branches: [ "main" ]
-
 on:
-  create:
-    tags:
-      - "*"
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -22,7 +17,5 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-    - name: Build Image
-      run: docker build -t xingba/pronoea:${GITHUB_REF_NAME} .
-    - name: Push Image
-      run: docker push xingba/pronoea:${GITHUB_REF_NAME}
+    - name: Build & Push
+      run: build.sh
