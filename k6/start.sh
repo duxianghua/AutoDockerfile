@@ -6,7 +6,7 @@ TESTID=$(date '+%Y%m%d%H%M%S')
 _INTERVAL=${INTERVAL-60}
 while true
 do
-    $K6_EXEC_PATH run -q -i 1 ../test.js -o xk6-prometheus-rw --tag pronoea=true --tag testid=$TESTID $@
+    $K6_EXEC_PATH run -q -i 1 /teset/test.js -o xk6-prometheus-rw --tag pronoea=true --tag testid=$TESTID $@
     echo "sleep ${_INTERVAL} ....."
     sleep $_INTERVAL
 done
