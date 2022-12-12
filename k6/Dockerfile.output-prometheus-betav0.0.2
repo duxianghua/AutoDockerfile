@@ -1,0 +1,12 @@
+FROM golang:1.17 as Build
+
+# Install xk6
+RUN go install go.k6.io/xk6/cmd/xk6@latest
+
+# Build the k6 binary
+RUN xk6 build --output /usr/bin/k6 --with github.com/grafana/xk6-output-prometheus-remote@v0.0.8
+
+FROM loadimpact/k6:latest
+COPY --from=Build /usr/bin/k6 /usr/bin/k6
+COPY ./start.sh /start.sh
+ENTRYPOINT [ "/start.sh" ]
