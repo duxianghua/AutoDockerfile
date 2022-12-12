@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 set -euo pipefail
 # K6_PROMETHEUS_RW_TREND_STATS="avg,min,med,max,p(90),p(95)" 
 # K6_PROMETHEUS_RW_TREND_STATS="max" 
@@ -17,6 +17,7 @@ _INTERVAL=${INTERVAL-60}
 # done
 while true
 do
+
     $K6_EXEC_PATH run -q -i 1 /test/test.js --tag testid=$TESTID $@
     if [[ $? != 0 ]];then
         exit $?
