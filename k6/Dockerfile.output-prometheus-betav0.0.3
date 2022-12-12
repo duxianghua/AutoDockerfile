@@ -9,4 +9,5 @@ RUN xk6 build --output /usr/bin/k6 --with github.com/grafana/xk6-output-promethe
 FROM loadimpact/k6:latest
 COPY --from=Build /usr/bin/k6 /usr/bin/k6
 COPY ./start.sh /start.sh
+COPY ./test.js /test/test.js
 ENTRYPOINT [ "/start.sh" ]
