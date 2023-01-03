@@ -17,8 +17,7 @@ _INTERVAL=${INTERVAL-60}
 # done
 while true
 do
-
-    $K6_EXEC_PATH run -q -i 1 /test/test.js --tag testid=$TESTID $@
+    $K6_EXEC_PATH run -q -i 1 /test/test.js $@
     if [[ $? != 0 ]];then
         exit $?
     fi
