@@ -6,7 +6,6 @@ REPO_PREFIX="xingba"
 DockerfileList=$(git diff-tree --no-commit-id --name-only -r --diff-filter=ACMR HEAD)
 for i in $DockerfileList
 do
-    
     REPOPATH=$(dirname $i)
     DOCKEFILE=${i##*/}
     if [[ $i != *"Dockerfile"* ]];then
