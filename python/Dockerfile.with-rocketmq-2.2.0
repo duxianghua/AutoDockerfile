@@ -1,5 +1,5 @@
 FROM python:latest
 
 RUN wget https://github.com/apache/rocketmq-client-cpp/releases/download/2.2.0/rocketmq-client-cpp-2.2.0.amd64.deb && \
-    dpkg -i rocketmq-client-cpp-2.0.0.amd64.deb && \
+    dpkg -i rocketmq-client-cpp-2.2.0.amd64.deb && \
     pip3 install rocketmq-client-python
